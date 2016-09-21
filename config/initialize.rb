@@ -1,22 +1,20 @@
-# require 'active_record'
-# require 'pathname'
-# require 'faraday'
-# require 'nokogiri'
+# 这里需要清理
+require 'active_record'
+require 'pathname'
+require 'faraday'
+require 'nokogiri'
+require 'settingslogic'
 
 
 require 'require_all'
 
-# 加载 models
+# 配置文件
+require_all 'config/settings.rb'
+# models
 require_all 'models'
-
-# 加载 tools
+# tools
 require_all 'tools'
 
-# 初始化 active_record
-ActiveRecord::Base.establish_connection(
-    :adapter => "mysql2",
-    :database  => "data_acquisition_development",
-    :username  => "root",
-    :password  => "hdwzc",
-    :socket  => "/tmp/mysql.sock"
-  )
+
+# 数据库链接
+ActiveRecord::Base.establish_connection Settings.database

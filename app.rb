@@ -17,5 +17,3 @@ result.each do |e|
   # file_body = Rocket.get_elements(uri.to_s)
   # Downloador.save_file(obj[:name],file_body)
 end
-
-# Downloador.save_file(1,2)
